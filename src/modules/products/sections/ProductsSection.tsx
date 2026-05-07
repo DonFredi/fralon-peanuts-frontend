@@ -6,7 +6,7 @@ import ProductCard from "../components/ProductCard";
 export default function ProductsSection() {
   return (
     <div className="flex flex-col gap-6">
-      <SectionWrapper className="section-content gap-2 items-center">
+      <SectionWrapper className="section-content max-w-190 gap-2 items-center">
         <SectionHeading>Our products</SectionHeading>
         <P className="text-center">
           At Fralon Peanuts, we take pride in crafting the finest peanut-based products that are perfect for every

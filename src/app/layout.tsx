@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { Poppins, Sofia_Sans } from "next/font/google";
-import Header from "@/shared/components/layout/Header";
+import { Urbanist, Sofia_Sans } from "next/font/google";
 import "@/styles/globals.css";
-import Footer from "@/shared/components/layout/Footer";
 import { generateSEO } from "@/shared/lib/seo";
-import { Toaster } from "sonner";
 import QueryProvider from "@/providers/QueryProvider";
 import AuthProvider from "@/providers/AuthProvider";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const urbanist = Urbanist({
+  variable: "--font-urbanist",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -31,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="min-h-screen">
-      <body className={`${poppins.variable} ${sofiaSans.variable} antialiased min-h-screen gap-y-10 flex flex-col`}>
+      <body className={`${urbanist.variable} ${sofiaSans.variable} antialiased min-h-screen gap-y-10 flex flex-col`}>
         {/* Organization */}
         {/* <JsonLd data={organizationSchema} /> */}
         {/* Website */}

@@ -80,7 +80,7 @@
 
   /* TYPOGRAPHY */
   --font-primary: var(--font-sofia-sans);
-  --font-secondary: var(--font-poppins);
+  --font-secondary: var(--font-urbanist);
 
   --text-caption-xs: var(--text-size-xs);
   --text-caption-sm: var(--text-size-xs);
@@ -174,7 +174,7 @@
   }
 
   h1 {
-    @apply font-bold text-heading-xl;
+    @apply font-black text-heading-xl;
   }
   h2 {
     @apply font-bold text-heading-lg;
@@ -183,10 +183,10 @@
     @apply font-bold text-heading-base;
   }
   h4 {
-    @apply font-semibold text-heading-sm;
+    @apply font-bold text-heading-sm;
   }
   h5 {
-    @apply font-semibold text-heading-xs;
+    @apply font-bold text-heading-xs;
   }
 }
 
