@@ -16,7 +16,7 @@ export default function ContactActionCard({ children, active, title, href, icon:
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "border border-foreground w-full flex flex-col gap-2 radius-card px-6 lg:px-8 py-4 items-center",
+        "border border-foreground w-full flex flex-col gap-1 radius-card px-6 lg:px-8 py-4 items-center",
         active && "bg-secondary",
       )}
     >

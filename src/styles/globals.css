@@ -138,6 +138,9 @@
   .section-content {
     @apply flex flex-col gap-4 max-w-125;
   }
+  .section-align {
+    @apply flex flex-col gap-6 max-w-190;
+  }
 }
 
 @layer base {
