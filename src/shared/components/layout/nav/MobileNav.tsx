@@ -20,8 +20,8 @@ export default function MobileNav() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost">
-          <Menu className="size-6" />
+        <Button variant="ghost" className="rounded-sm p-2">
+          <Menu className="size-7" />
         </Button>
       </SheetTrigger>
       <SheetContent showCloseButton={false} side="left" className="p-4 justify-between">

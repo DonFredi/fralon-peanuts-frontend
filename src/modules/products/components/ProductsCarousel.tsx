@@ -17,7 +17,7 @@ export default function ProductsCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <div className="w-fit mr-[6%] md:mr-[10%] self-end flex items-center justify-between gap-4">
+      <div className="w-fit mr-[6%] md:mr-[10%] self-center flex items-center justify-between gap-4">
         <CarouselPrevious variant="ghost" className="p-5 border border-primary text-border" />
         <CarouselNext variant="ghost" className="p-5 border border-primary text-border" />
       </div>
