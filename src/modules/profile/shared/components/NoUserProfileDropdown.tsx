@@ -7,6 +7,7 @@ import {
   DropdownMenuTrigger,
 } from "@/shared/components/ui/dropdown-menu";
 import { UserRound } from "lucide-react";
+import Link from "next/link";
 
 export function NoUserProfileDropdown() {
   return (
@@ -18,8 +19,12 @@ export function NoUserProfileDropdown() {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuGroup>
-          <DropdownMenuItem>Log in</DropdownMenuItem>
-          <DropdownMenuItem>Create account</DropdownMenuItem>
+          <Link href="/auth/login">
+            <DropdownMenuItem className="py-2">Log in</DropdownMenuItem>
+          </Link>
+          <Link href="/auth/login">
+            <DropdownMenuItem className="py-2">Create account</DropdownMenuItem>
+          </Link>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

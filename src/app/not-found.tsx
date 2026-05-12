@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <PageWrapper>
-      <SectionWrapper className="text-center">
+      <SectionWrapper className="text-center translate-y-full">
         <SectionHeading className="text-destructive">404</SectionHeading>
         <P className="my-2">Page you are looking for does not exist</P>
         <Link href="/" className="font-medium hover:scale-105 active:scale-95 duration-300 ease-in-out underline p-1">

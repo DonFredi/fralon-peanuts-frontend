@@ -1,4 +1,4 @@
-import { CreditCardIcon, LogOutIcon, SettingsIcon, UserIcon, UserRound } from "lucide-react";
+import { LogOutIcon, UserRound } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import {
   DropdownMenu,

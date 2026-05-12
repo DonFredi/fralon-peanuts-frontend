@@ -144,6 +144,9 @@
   .section-head {
     @apply flex flex-col items-center gap-2 max-w-160;
   }
+  .section-head-start {
+    @apply flex flex-col gap-2 max-w-160;
+  }
   .section-wrapper {
     @apply flex flex-col gap-8 items-center;
   }

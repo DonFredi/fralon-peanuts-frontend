@@ -5,5 +5,5 @@ import { NoUserProfileDropdown } from "./NoUserProfileDropdown";
 
 export default function FinalDisplayDropdown() {
   const { isInitialized, isAuthenticated } = useAuth();
-  return <>{isInitialized && isAuthenticated ? <NoUserProfileDropdown /> : <ProfileDropdown />}</>;
+  return <>{isInitialized && isAuthenticated ? <ProfileDropdown /> : <NoUserProfileDropdown />}</>;
 }

@@ -4,7 +4,7 @@ import Navbar from "./nav/Navbar";
 import LogoutButton from "@/modules/auth/logout/components/LogoutButton";
 import Badge from "../shared/Badge";
 import OpenCartButton from "./nav/components/OpenCartButton";
-import FinalDisplayDropdown from "@/modules/profile/components/FinalDisplayDropdown";
+import FinalDisplayDropdown from "@/modules/profile/shared/components/FinalDisplayDropdown";
 const MobileNav = dynamic(() => import("./nav/MobileNav"));
 
 export default function Header() {

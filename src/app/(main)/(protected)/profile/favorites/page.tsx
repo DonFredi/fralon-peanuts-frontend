@@ -1,13 +1,5 @@
-import PageHeading from "@/shared/components/shared/PageHeading";
-import PageWrapper from "@/shared/components/shared/PageWrapper";
-import SectionWrapper from "@/shared/components/shared/SectionWrapper";
+import FavoritesPage from "@/modules/profile/favorites/FavoritesPage";
 
 export default function Favorites() {
-  return (
-    <PageWrapper>
-      <SectionWrapper>
-        <PageHeading>Favorites</PageHeading>
-      </SectionWrapper>
-    </PageWrapper>
-  );
+  return <FavoritesPage />;
 }
