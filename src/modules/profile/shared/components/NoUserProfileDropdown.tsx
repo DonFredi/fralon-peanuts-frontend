@@ -18,11 +18,11 @@ export function NoUserProfileDropdown() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuGroup>
+        <DropdownMenuGroup className="flex flex-col gap-1">
           <Link href="/auth/login">
             <DropdownMenuItem className="py-2">Log in</DropdownMenuItem>
           </Link>
-          <Link href="/auth/login">
+          <Link href="/auth/register">
             <DropdownMenuItem className="py-2">Create account</DropdownMenuItem>
           </Link>
         </DropdownMenuGroup>
