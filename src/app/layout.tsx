@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="min-h-screen">
-      <body className={`${urbanist.variable} ${sofiaSans.variable} antialiased min-h-screen gap-y-10 flex flex-col`}>
+      <body className={`${urbanist.variable} ${sofiaSans.variable} antialiased gap-y-10 flex flex-col`}>
         {/* Organization */}
         {/* <JsonLd data={organizationSchema} /> */}
         {/* Website */}

@@ -22,7 +22,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <header className="">
-        <SectionWrapper>
+        <SectionWrapper className="py-2">
           <Badge />
         </SectionWrapper>
       </header>

@@ -9,7 +9,7 @@ import { P } from "@/shared/components/ui/Typography";
 export default function ReportBug() {
   return (
     <SectionWrapper>
-      <div className="section-head-start">
+      <div className="section-head-start mx-auto items-start">
         <div className="section-head-start">
           <SectionHeading>Report bug</SectionHeading>
           <P>
@@ -17,7 +17,7 @@ export default function ReportBug() {
             feedback helps us improve.
           </P>
         </div>
-        <form className="">
+        <form className="mt-2 max-w-125 mx-0">
           <FieldGroup className="">
             <FieldSet>
               <FieldLegend className="sr-only">Report bug</FieldLegend>

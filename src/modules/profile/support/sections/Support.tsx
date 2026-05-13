@@ -6,7 +6,7 @@ import { P } from "@/shared/components/ui/Typography";
 export default function Support() {
   return (
     <SectionWrapper>
-      <div className="section-head-start">
+      <div className="section-head-start mx-auto">
         <SectionHeading>Support</SectionHeading>
         <div className="">
           <P>
