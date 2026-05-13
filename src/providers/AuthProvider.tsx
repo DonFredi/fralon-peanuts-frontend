@@ -26,11 +26,11 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
 
   const setSession = useCallback((user: User, token: string) => {
     authBreadcrumbs("Session set", {
-      userId: user._id,
+      userId: user.id,
       email: user.email,
     });
     Sentry.setUser({
-      userId: user._id,
+      userId: user.id,
       email: user.email,
     });
     setUser(user);

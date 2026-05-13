@@ -16,7 +16,7 @@ export const useLogin = () => {
     },
     onSuccess: (data) => {
       authBreadcrumbs("Login successful", {
-        userId: data.user._id,
+        userId: data.user.id,
         email: data.user.email,
       });
       setSession(data.user, data.accessToken);

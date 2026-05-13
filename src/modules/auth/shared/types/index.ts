@@ -1,7 +1,7 @@
 export type UserRoles = "admin" | "member" | "user";
 
 export type User = {
-  _id: string;
+  id: string;
   username: string;
   email: string;
   roles: UserRoles[];
