@@ -12,7 +12,7 @@ export const useRegister = () => {
     },
     onSuccess: (data) => {
       authBreadcrumbs("User registration successful", {
-        userId: data.user.id,
+        userId: data.user._id,
         email: data.user.email,
       });
       toast.success("Account created successfully");
