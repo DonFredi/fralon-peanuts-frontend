@@ -2,6 +2,8 @@ import SectionHeading from "@/shared/components/shared/SectionHeading";
 import SectionWrapper from "@/shared/components/shared/SectionWrapper";
 import { Button } from "@/shared/components/ui/button";
 import { P } from "@/shared/components/ui/Typography";
+import Image from "next/image";
+import spreadImage from "../../../../public/images/spread_img.png";
 
 export default function KnowUs() {
   return (
@@ -17,7 +19,12 @@ export default function KnowUs() {
         </P>
         <Button variant="outline">Learn more</Button>
       </article>
-      <div className="md:w-80 md:h-120 w-full h-75 max-w-125 radius-card bg-secondary" />
+      <Image
+        src={spreadImage}
+        placeholder="blur"
+        alt="peanut butter"
+        className="md:w-80 md:h-120 w-full h-75 max-w-125 radius-card bg-secondary"
+      />
     </SectionWrapper>
   );
 }

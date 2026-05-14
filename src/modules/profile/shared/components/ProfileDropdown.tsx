@@ -18,7 +18,7 @@ export function ProfileDropdown() {
           <UserRound className="size-6" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="-mt-2">
+      <DropdownMenuContent className="-mt-2 mr-4">
         {profileLinks.map((link) => (
           <Link key={link.to} href={`/profile${link.to}`}>
             <DropdownMenuItem className="py-2">

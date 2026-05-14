@@ -96,6 +96,7 @@
   --text-body-2xl: var(--text-size-2xl);
   --text-body-3xl: var(--text-size-3xl);
 
+  --text-heading-xxs: var(--text-size-base);
   --text-heading-xs: var(--text-size-lg);
   --text-heading-sm: var(--text-size-xl);
   --text-heading-base: var(--text-size-2xl);
@@ -183,19 +184,19 @@
   }
 
   h1 {
-    @apply font-black text-heading-xl;
+    @apply font-black text-heading-lg;
   }
   h2 {
-    @apply font-bold text-heading-lg;
-  }
-  h3 {
     @apply font-bold text-heading-base;
   }
-  h4 {
+  h3 {
     @apply font-bold text-heading-sm;
   }
-  h5 {
+  h4 {
     @apply font-bold text-heading-xs;
+  }
+  h5 {
+    @apply font-bold text-heading-xxs;
   }
 }
 

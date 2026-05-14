@@ -39,7 +39,7 @@ export default function MobileNav() {
           </SheetClose>
         </SheetHeader>
         <nav className="flex-1 flex flex-col justify-center">
-          <ul className="flex flex-col gap-1 divide-y divide-slate-200">
+          <ul className="flex flex-col gap-1 divide-y divide-foreground-border">
             {navLinks.map((navLink) => (
               <li key={navLink.label} className="">
                 <SheetClose asChild>
