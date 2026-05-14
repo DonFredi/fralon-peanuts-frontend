@@ -6,9 +6,9 @@ import productImage from "../../../../public/images/product_img.png";
 
 export default function ProductCard() {
   return (
-    <div className="p-4 border border-primary radius-card gap-2 flex flex-col w-60 h-90">
+    <div className="p-4 border border-primary radius-card gap-2 flex flex-col w-60">
       <div className="flex-1 relative">
-        <Image src={productImage} alt="peanut butter" />
+        <Image src={productImage} alt="peanut butter" className="w-43.5 h-50 mx-auto" />
         <FavButton />
       </div>
       <div className="flex w-full flex-col gap-1 items-center">

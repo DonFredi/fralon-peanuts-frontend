@@ -18,11 +18,9 @@ export default function Hero() {
             Not Just Any Butter, It's Peanut Perfection. Nutty, But in the Best Way. We offer quality peanut butter
             products. You can get all our products in a store nearby.
           </P>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-            <NavButton path="/products" className="w-full sm:w-fit">
-              View Products
-            </NavButton>
-            <NavButton path="/auth/login" variant="outline" className="w-full sm:w-fit">
+          <div className="flex flex-row gap-4 sm:gap-6">
+            <NavButton path="/products">View Products</NavButton>
+            <NavButton path="/auth/login" variant="outline">
               Log in
             </NavButton>
           </div>

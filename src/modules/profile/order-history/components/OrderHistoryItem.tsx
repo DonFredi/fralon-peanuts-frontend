@@ -6,7 +6,7 @@ export default function OrderHistoryItem() {
     <div className="border border-foreground-border radius-card p-4 flex flex-col gap-1">
       <div className="flex items-center justify-between gap-4">
         <P className="font-semibold">Order#: 66sdas6uyf9dsau30dh7s9</P>
-        <Expand className="size-5 text-foreground-caption" />
+        <Expand className="size-5 text-foreground-border" />
       </div>
       <small className="text-caption-base text-foreground-caption">
         Status : <span className="text-success">Delivered</span>
