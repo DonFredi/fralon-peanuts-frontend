@@ -1,6 +1,6 @@
 "use client";
 import * as Sentry from "@sentry/nextjs";
-import { getCurrentUser } from "@/modules/auth/me/me.api";
+import { getCurrentUser } from "@/modules/profile/account/me/me.api";
 import { refresh } from "@/modules/auth/refresh/refresh.api";
 import type { User } from "@/modules/auth/shared/types";
 import FullScreenLoader from "@/shared/components/layout/FullScreenLoader";

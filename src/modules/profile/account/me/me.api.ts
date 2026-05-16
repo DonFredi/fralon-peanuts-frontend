@@ -1,5 +1,5 @@
 import api from "@/shared/lib/api-client";
-import type { User } from "../shared/types";
+import type { User } from "../../../auth/shared/types";
 import type { ApiResponse } from "@/shared/types";
 import { ApiCustomError } from "@/shared/errors/api-error";
 

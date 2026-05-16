@@ -55,6 +55,7 @@ export default function LoginForm() {
             <Field>
               <FieldLabel htmlFor="password">Password</FieldLabel>
               <Input
+                autoComplete="off"
                 id="password"
                 type="password"
                 placeholder="••••••••"

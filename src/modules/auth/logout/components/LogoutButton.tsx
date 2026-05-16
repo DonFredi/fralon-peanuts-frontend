@@ -21,7 +21,7 @@ export default function LogoutButton({ children }: { children: ReactNode }) {
 
   return (
     <Activity mode={isAuthenticated ? "visible" : "hidden"}>
-      <Button disabled={isPending} variant="destructive" onClick={handleLogout} className="py-2 px-4">
+      <Button disabled={isPending} onClick={handleLogout} className="py-2 px-4 text-destructive bg-red-200">
         {children}
       </Button>
     </Activity>
