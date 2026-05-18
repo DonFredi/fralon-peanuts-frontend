@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Urbanist, Sofia_Sans } from "next/font/google";
+import { Outfit, Sofia_Sans } from "next/font/google";
 import "@/styles/globals.css";
 import { generateSEO } from "@/shared/lib/seo";
 import QueryProvider from "@/providers/QueryProvider";
 import AuthProvider from "@/providers/AuthProvider";
 
-const urbanist = Urbanist({
-  variable: "--font-urbanist",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "900"],
   display: "swap",
 });
 
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="min-h-screen">
-      <body className={`${urbanist.variable} ${sofiaSans.variable} antialiased gap-y-10 flex flex-col`}>
+      <body className={`${outfit.variable} ${sofiaSans.variable} antialiased gap-y-10 flex flex-col`}>
         {/* Organization */}
         {/* <JsonLd data={organizationSchema} /> */}
         {/* Website */}

@@ -80,7 +80,7 @@
 
   /* TYPOGRAPHY */
   --font-primary: var(--font-sofia-sans);
-  --font-secondary: var(--font-urbanist);
+  --font-secondary: var(--font-outfit);
 
   --text-caption-xs: var(--text-size-xs);
   --text-caption-sm: var(--text-size-xs);
