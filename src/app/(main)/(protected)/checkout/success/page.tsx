@@ -1,5 +1,16 @@
-import CheckoutSuccessPage from "@/modules/checkout/checkout-success/CheckoutSuccessPage";
+import { Suspense } from "react";
+import OrderSuccessPage from "@/modules/orders/pages/order-success-page";
 
-export default function CheckoutSuccess() {
-  return <CheckoutSuccessPage />;
+// Suspense is required because OrderSuccessPage uses useSearchParams()
+// which only works inside a Suspense boundary in the App Router
+export default function Page() {
+  return (
+    <Suspense>
+      <OrderSuccessPage />
+    </Suspense>
+  );
 }
+
+export const metadata = {
+  title: "Order placed",
+};

@@ -59,14 +59,9 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
       try {
         const {
           data: { user },
-          error,
         } = await supabase.auth.getUser();
 
         if (!isMounted) return;
-
-        if (error) {
-          throw error;
-        }
 
         setUser(user);
         if (user) {
