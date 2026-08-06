@@ -10,32 +10,48 @@ import { Textarea } from "@/shared/components/ui/textarea";
 import { H3 } from "@/shared/components/ui/Typography";
 import { Input } from "@/shared/components/ui/input";
 import CheckoutOrderSummary from "@/modules/cart/components/CheckoutOrderSummary";
-import { deliveryFee, subTotal } from "@/modules/cart/sections/CartSection";
+import { DELIVERY_FEE_KSH } from "../checkout.api";
+import { useCreateOrder } from "../use-create-order";
+import { useCart } from "@/modules/cart/context/cart-context";
 import { Button } from "@/shared/components/ui/button";
 import RadioBtnWrapper from "./RadioBtnWrapper";
 import { Activity } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function CheckoutForm() {
   const router = useRouter();
+  const { items, subtotal, isLoading: isCartLoading } = useCart();
+  const createOrderMutation = useCreateOrder();
   const { handleSubmit, control, watch } = useForm<CheckoutInput>({
     resolver: zodResolver(checkoutSchema),
     defaultValues: {
-      fulfillmentMethod: undefined,
+      fulfillment_method: undefined,
       constituency: "",
       ward: "",
       street: "",
-      paymentMethod: undefined,
-      mpesaPhone: "",
+      payment_method: undefined,
+      mpesa_phone: "",
     },
   });
 
-  const fulfillmentMethodSelection = watch("fulfillmentMethod");
-  const paymentMethodSelection = watch("paymentMethod");
+  const fulfillmentMethodSelection = watch("fulfillment_method");
+  const paymentMethodSelection = watch("payment_method");
+  const deliveryFee = fulfillmentMethodSelection === "delivery" ? DELIVERY_FEE_KSH : 0;
 
-  const handleCheckout: SubmitHandler<CheckoutInput> = (data) => {
-    console.log("checkout data :", data);
-    router.push("/checkout/success");
+  const handleCheckout: SubmitHandler<CheckoutInput> = async (data) => {
+    if (isCartLoading || items.length === 0) {
+      toast.error("Your cart is empty");
+      return;
+    }
+
+    try {
+      const order = await createOrderMutation.mutateAsync(data);
+      console.log("Order data::", order);
+      router.push(`/checkout/success?orderId=${order.order_id}`);
+    } catch (error) {
+      toast.error("We could not place your order. Please review your cart and try again.");
+    }
   };
 
   return (
@@ -46,7 +62,7 @@ export default function CheckoutForm() {
             <H3 className="py-0">Choose your prefered option</H3>
             <FieldGroup>
               <Controller
-                name="fulfillmentMethod"
+                name="fulfillment_method"
                 control={control}
                 render={({ field, fieldState }) => (
                   <div className="space-y-2">
@@ -144,7 +160,7 @@ export default function CheckoutForm() {
             <H3 className="py-0">Choose payment option</H3>
             <FieldGroup>
               <Controller
-                name="paymentMethod"
+                name="payment_method"
                 control={control}
                 render={({ field, fieldState }) => (
                   <div className="space-y-2">
@@ -176,14 +192,14 @@ export default function CheckoutForm() {
               <H3 className="py-0">Pay easily with mpesa</H3>
               <FieldGroup>
                 <Controller
-                  name="mpesaPhone"
+                  name="mpesa_phone"
                   control={control}
                   render={({ field, fieldState }) => (
                     <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor="mpesaPhone">Enter Mpesa Phone Number</FieldLabel>
+                      <FieldLabel htmlFor="mpesa_phone">Enter Mpesa Phone Number</FieldLabel>
                       <Input
                         {...field}
-                        id="mpesaPhone"
+                        id="mpesa_phone"
                         type="tel"
                         aria-invalid={fieldState.invalid}
                         placeholder="07xxxxxxxx"
@@ -197,8 +213,12 @@ export default function CheckoutForm() {
             </div>
           </Activity>
         </FieldSet>
-        <CheckoutOrderSummary deliveryFee={deliveryFee} subTotal={subTotal} />
-        <Button type="submit" className="w-full sticky bottom-3 sm:hidden -mt-4">
+        <CheckoutOrderSummary deliveryFee={deliveryFee} subTotal={subtotal} />
+        <Button
+          type="submit"
+          disabled={createOrderMutation.isPending || isCartLoading || items.length === 0}
+          className="w-full sticky bottom-3 sm:hidden -mt-4"
+        >
           Confirm Order
         </Button>
       </form>

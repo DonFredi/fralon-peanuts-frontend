@@ -22,7 +22,7 @@ export const useLogin = () => {
       authBreadcrumbs("Login failed", {
         error: String(error),
       });
-      toast.error(getErrorMessage(error));
+      toast.error("Failed to Login, please try again");
     },
   });
 };

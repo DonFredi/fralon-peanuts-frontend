@@ -14,8 +14,8 @@ export const register = async (data: RegisterInput): Promise<RegisterDto> => {
     },
   });
   if (error) {
-    console.log(error.message);
-    throw new ApiCustomError(error.message, error.status ?? 500);
+    console.log("register ;", error);
+    throw new ApiCustomError("Error creating user", error.status ?? 500);
   }
   if (!authData.user) throw new ApiCustomError("Failed to register", 500);
   return authData.user;

@@ -6,15 +6,16 @@
 
 :root {
   /* COLORS */
-  --primary: #6a3a1a;
-  --secondary: #dfa96b;
+  --primary: oklch(0.334 0.057 183.6);
+  --secondary: #887265;
   --accent: #ff6300;
   --neutral: #ebf2ff;
 
-  --background: #fff2d9;
+  --background: #f6f3e9;
 
   --text: #3a2413;
   --text-heading: #6a3a1a;
+  /* --text-heading: #6a3a1a; */
   --text-muted: #a38b78;
   --text-caption: #555555;
 
@@ -184,10 +185,10 @@
   }
 
   h1 {
-    @apply font-bold text-heading-lg;
+    @apply font-extrabold text-heading-lg;
   }
   h2 {
-    @apply font-bold text-heading-base;
+    @apply font-extrabold text-heading-base;
   }
   h3 {
     @apply font-bold text-heading-sm;

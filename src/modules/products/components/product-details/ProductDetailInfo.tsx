@@ -4,40 +4,24 @@
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
+import { useCart } from "@/modules/cart/context/cart-context";
 import { Separator } from "@/shared/components/ui/separator";
 import ProductVariantSelector from "./ProductVariantSelector";
 import type { ProductDetail } from "../../repository/product-detail.repository";
-import type { CartActions } from "@/modules/cart/hooks/use-cart-stub";
 import FavButton from "../FavButton";
-
-type Variant = ProductDetail["product_variants"][number];
+import type { ProductVariant } from "../../types/products.types";
+import AddToCartBtn from "../AddToCartBtn";
 
 interface ProductDetailInfoProps {
   product: ProductDetail;
-  selectedVariant: Variant | null;
+  selectedVariant: ProductVariant | null;
   onVariantChange: (id: string) => void;
-  cart: CartActions;
 }
 
-export default function ProductDetailInfo({ product, selectedVariant, onVariantChange, cart }: ProductDetailInfoProps) {
+export default function ProductDetailInfo({ product, selectedVariant, onVariantChange }: ProductDetailInfoProps) {
+  const { items, addToCart, updateQuantity, isMutating, inCart, quantity } = useCart();
+
   const isOos = !selectedVariant?.available;
-  const inCart = selectedVariant ? cart.isInCart(selectedVariant.id) : false;
-  const quantity = selectedVariant ? cart.getQuantity(selectedVariant.id) : 0;
-
-  const handleAddToCart = () => {
-    if (!selectedVariant || isOos) return;
-    cart.addToCart(selectedVariant.id);
-  };
-
-  const handleIncrement = () => {
-    if (!selectedVariant) return;
-    cart.updateQuantity(selectedVariant.id, quantity + 1);
-  };
-
-  const handleDecrement = () => {
-    if (!selectedVariant) return;
-    cart.updateQuantity(selectedVariant.id, quantity - 1);
-  };
 
   const stockStatus = selectedVariant
     ? selectedVariant.stock_quantity === 0
@@ -93,15 +77,15 @@ export default function ProductDetailInfo({ product, selectedVariant, onVariantC
           <Button className="w-full" size="lg" disabled>
             Out of stock
           </Button>
-        ) : inCart ? (
+        ) : inCart(selectedVariant.id) ? (
           <div className="flex items-center gap-4">
             <div className="flex items-center rounded-md border">
-              <Button variant="ghost" size="icon" className="h-11 w-11 rounded-r-none" onClick={handleDecrement}>
+              <Button variant="ghost" size="icon" className="h-11 w-11 rounded-r-none" onClick={() => updateQuantity}>
                 <Minus className="h-4 w-4" />
                 <span className="sr-only">Decrease quantity</span>
               </Button>
-              <span className="w-12 text-center text-sm font-semibold">{quantity}</span>
-              <Button variant="ghost" size="icon" className="h-11 w-11 rounded-l-none" onClick={handleIncrement}>
+              <span className="w-12 text-center text-sm font-semibold">{quantity(selectedVariant)}</span>
+              <Button variant="ghost" size="icon" className="h-11 w-11 rounded-l-none" onClick={() => updateQuantity}>
                 <Plus className="h-4 w-4" />
                 <span className="sr-only">Increase quantity</span>
               </Button>
@@ -109,10 +93,7 @@ export default function ProductDetailInfo({ product, selectedVariant, onVariantC
             <p className="text-sm text-muted-foreground">In your cart</p>
           </div>
         ) : (
-          <Button className="w-full" onClick={handleAddToCart}>
-            <ShoppingCart className="h-5 w-5" />
-            Add to cart
-          </Button>
+          <AddToCartBtn className="w-full" productId={selectedVariant.product_id} variantId={selectedVariant.id} />
         )}
       </div>
     </div>

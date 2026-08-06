@@ -48,9 +48,9 @@ export default function AddressDetailsForm({ user }: { user: ProfileWithAddresse
   } = useForm<AddressDetailsInput>({
     resolver: zodResolver(addressDetailsSchema),
     defaultValues: {
-      constituency: user?.addresses[0].constituency ?? "",
-      ward: user?.addresses[0].ward ?? "",
-      street: user?.addresses[0].street ?? "",
+      constituency: user?.addresses[0]?.constituency ?? "",
+      ward: user?.addresses[0]?.ward ?? "",
+      street: user?.addresses[0]?.street ?? "",
     },
   });
 
@@ -59,7 +59,7 @@ export default function AddressDetailsForm({ user }: { user: ProfileWithAddresse
     if (user?.addresses[0]) {
       reset(user.addresses[0]);
     }
-  }, [reset, user?.addresses[0].id]);
+  }, [reset, user?.addresses[0]?.id]);
 
   const constituencies = Object.keys(nairobiLocations);
 
@@ -97,7 +97,7 @@ export default function AddressDetailsForm({ user }: { user: ProfileWithAddresse
 
   return (
     <form
-      onSubmit={handleSubmit(!user?.addresses[0].id ? handleCreateAddress : handleUpdateAddressDetails)}
+      onSubmit={handleSubmit(!user?.addresses[0]?.id ? handleCreateAddress : handleUpdateAddressDetails)}
       className="max-w-150 mx-0"
     >
       <FieldSet className="gap-6">

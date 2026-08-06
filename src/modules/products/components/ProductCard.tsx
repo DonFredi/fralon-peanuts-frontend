@@ -7,6 +7,7 @@ import { ImageIcon, ShoppingCart } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { getVariantImageUrl } from "../lib/product-list.helpers";
 import type { StorefrontVariant } from "../repository/products.repository";
+import AddToCartBtn from "./AddToCartBtn";
 
 interface ProductCardProps {
   variant: StorefrontVariant;
@@ -25,7 +26,7 @@ export default function ProductCard({ variant, onAddToCart }: ProductCardProps) 
   };
 
   return (
-    <div className="group flex flex-col rounded-xl border border-foreground-border bg-card overflow-hidden transition-shadow hover:shadow-md">
+    <div className="group flex flex-col rounded-lg border border-foreground-border bg-card overflow-hidden transition-shadow hover:shadow-md">
       {/* ── Image — full card is not a link; only image+text area is ── */}
       <Link href={detailHref} className="block">
         <div className="relative aspect-square w-full overflow-hidden bg-muted">
@@ -71,15 +72,13 @@ export default function ProductCard({ variant, onAddToCart }: ProductCardProps) 
             Out of stock
           </Button>
         ) : (
-          <Button
+          <AddToCartBtn
+            variantId={variant.id}
+            productId={variant.product_id}
             size="sm"
-            className="w-full gap-1.5"
-            onClick={handleAddToCart}
+            className="w-full"
             aria-label={`Add ${product?.name} ${variant.name} to cart`}
-          >
-            <ShoppingCart className="size-4" />
-            Add to cart
-          </Button>
+          />
         )}
       </div>
     </div>

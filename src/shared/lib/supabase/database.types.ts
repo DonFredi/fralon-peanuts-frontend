@@ -427,6 +427,7 @@ export type Database = {
           total_ksh: number
           unit_price_ksh: number
           variant_id: string | null
+          variant_name: string | null
         }
         Insert: {
           id?: string
@@ -437,6 +438,7 @@ export type Database = {
           total_ksh: number
           unit_price_ksh: number
           variant_id?: string | null
+          variant_name?: string | null
         }
         Update: {
           id?: string
@@ -447,6 +449,7 @@ export type Database = {
           total_ksh?: number
           unit_price_ksh?: number
           variant_id?: string | null
+          variant_name?: string | null
         }
         Relationships: [
           {
@@ -474,54 +477,66 @@ export type Database = {
       }
       orders: {
         Row: {
-          addresses_id: string | null
+          address_id: string | null
           coupon_id: string | null
           created_at: string
+          customer_id: string | null
           discount_ksh: number
+          fulfillment_method: string
           id: string
           notes: string | null
+          payment_method: string
+          payment_reference: string | null
+          payment_status: string
           shipping_ksh: number
           status: string
           subtotal_ksh: number
           tax_ksh: number
           total_ksh: number
           updated_at: string
-          user_id: string | null
         }
         Insert: {
-          addresses_id?: string | null
+          address_id?: string | null
           coupon_id?: string | null
           created_at?: string
+          customer_id?: string | null
           discount_ksh?: number
+          fulfillment_method?: string
           id?: string
           notes?: string | null
+          payment_method?: string
+          payment_reference?: string | null
+          payment_status?: string
           shipping_ksh?: number
           status?: string
           subtotal_ksh: number
           tax_ksh?: number
           total_ksh: number
           updated_at?: string
-          user_id?: string | null
         }
         Update: {
-          addresses_id?: string | null
+          address_id?: string | null
           coupon_id?: string | null
           created_at?: string
+          customer_id?: string | null
           discount_ksh?: number
+          fulfillment_method?: string
           id?: string
           notes?: string | null
+          payment_method?: string
+          payment_reference?: string | null
+          payment_status?: string
           shipping_ksh?: number
           status?: string
           subtotal_ksh?: number
           tax_ksh?: number
           total_ksh?: number
           updated_at?: string
-          user_id?: string | null
         }
         Relationships: [
           {
             foreignKeyName: "orders_addresses_id_fkey"
-            columns: ["addresses_id"]
+            columns: ["address_id"]
             isOneToOne: false
             referencedRelation: "addresses"
             referencedColumns: ["id"]
@@ -535,7 +550,7 @@ export type Database = {
           },
           {
             foreignKeyName: "orders_user_id_fkey"
-            columns: ["user_id"]
+            columns: ["customer_id"]
             isOneToOne: false
             referencedRelation: "customers"
             referencedColumns: ["id"]
@@ -1070,7 +1085,33 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      create_order_from_cart: {
+        Args: {
+          p_address_id?: string
+          p_delivery_address?: Json
+          p_fulfillment_method: string
+          p_mpesa_phone?: string
+          p_notes?: string
+          p_payment_method: string
+        }
+        Returns: {
+          order_id: string
+          order_status: string
+          payment_status: string
+          shipping_ksh: number
+          subtotal_ksh: number
+          total_ksh: number
+        }[]
+      }
+      demote_to_customer: {
+        Args: { target_user_id: string }
+        Returns: undefined
+      }
+      promote_to_staff: { Args: { target_user_id: string }; Returns: undefined }
+      set_staff_active: {
+        Args: { active: boolean; target_user_id: string }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never

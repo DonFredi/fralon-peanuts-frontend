@@ -3,29 +3,27 @@
 
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
-import type { CartActions } from "@/modules/cart/hooks/use-cart-stub";
+import { useCart } from "@/modules/cart/context/cart-context";
 import type { ProductDetail } from "../../repository/product-detail.repository";
+import type { ProductVariant } from "../../types/products.types";
 
-type Variant = ProductDetail["product_variants"][number];
+type Variant = ProductVariant;
 
 interface StickyAddToCartProps {
-  variant: Variant;
-  cart: CartActions;
+  variant: ProductVariant;
 }
 
-export default function StickyAddToCart({ variant, cart }: StickyAddToCartProps) {
-  const isOos = !variant.available;
-  const inCart = cart.isInCart(variant.id);
-  const quantity = cart.getQuantity(variant.id);
+export default function StickyAddToCart({ variant }: StickyAddToCartProps) {
+  const { items, addToCart, updateQuantity, isMutating, quantity, inCart } = useCart();
 
+  const isOos = !variant.available;
   const handleAddToCart = () => {
-    if (isOos) return;
-    cart.addToCart(variant.id);
+    addToCart(variant.id, variant.product_id);
   };
 
-  const handleIncrement = () => cart.updateQuantity(variant.id, quantity + 1);
-
-  const handleDecrement = () => cart.updateQuantity(variant.id, quantity - 1);
+  const handleUpdateQuantity = () => {
+    updateQuantity(variant.id, quantity(variant));
+  };
 
   return (
     <div
@@ -50,14 +48,14 @@ export default function StickyAddToCart({ variant, cart }: StickyAddToCartProps)
           <Button size="sm" disabled>
             Out of stock
           </Button>
-        ) : inCart ? (
+        ) : inCart(variant.id) ? (
           <div className="flex items-center rounded-lg p-1 border">
-            <Button variant="ghost" size="icon" className="h-10 w-10 rounded-r-none" onClick={handleDecrement}>
+            <Button variant="ghost" size="icon" className="h-10 w-10 rounded-r-none" onClick={handleUpdateQuantity}>
               <Minus className="h-4 w-4" />
               <span className="sr-only">Decrease quantity</span>
             </Button>
-            <span className="w-10 text-center text-sm font-semibold">{quantity}</span>
-            <Button variant="ghost" size="icon" className="h-10 w-10 rounded-l-none" onClick={handleIncrement}>
+            <span className="w-10 text-center text-sm font-semibold">{quantity(variant)}</span>
+            <Button variant="ghost" size="icon" className="h-10 w-10 rounded-l-none" onClick={handleUpdateQuantity}>
               <Plus className="h-4 w-4" />
               <span className="sr-only">Increase quantity</span>
             </Button>

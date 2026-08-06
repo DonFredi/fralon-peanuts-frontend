@@ -104,7 +104,6 @@ export default function ProductDetailPage() {
             product={product}
             selectedVariant={selectedVariant}
             onVariantChange={handleVariantChange}
-            cart={cart}
           />
         </div>
 
@@ -113,7 +112,7 @@ export default function ProductDetailPage() {
       </div>
 
       {/* ── Sticky CTA — mobile only (md:hidden is inside the component) ── */}
-      {selectedVariant && <StickyAddToCart variant={selectedVariant} cart={cart} />}
+      {selectedVariant && <StickyAddToCart variant={selectedVariant} />}
     </SectionWrapper>
   );
 }

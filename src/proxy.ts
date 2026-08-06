@@ -22,7 +22,7 @@ export async function proxy(request: NextRequest) {
   }
 
   // redirect authenticated users away from auth pages
-  if (user && (path === "/login" || path === "/register")) {
+  if (user && (path === "auth/login" || path === "auth/register")) {
     const url = request.nextUrl.clone();
     url.pathname = "/";
     return NextResponse.redirect(url);

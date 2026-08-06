@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { Outfit, Sofia_Sans } from "next/font/google";
+import { Outfit, Sofia_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import "@/styles/globals.css";
 import { generateSEO } from "@/shared/lib/seo";
 import QueryProvider from "@/providers/QueryProvider";
 import AuthProvider from "@/providers/AuthProvider";
+import { CartProvider } from "@/modules/cart/context/cart-context";
+import CartDrawer from "@/modules/cart/components/CartDrawer";
 
-const outfit = Outfit({
+const outfit = Plus_Jakarta_Sans({
   variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "900"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -34,7 +36,13 @@ export default function RootLayout({
         {/* Website */}
         {/* <JsonLd data={websiteSchema} /> */}
         <QueryProvider>
-          <AuthProvider>{children}</AuthProvider>
+          <AuthProvider>
+            <CartProvider>
+              {children}
+              {/* CartDrawer is mounted once here — opened via useCart().openDrawer() from anywhere */}
+              <CartDrawer />
+            </CartProvider>
+          </AuthProvider>
         </QueryProvider>
       </body>
     </html>

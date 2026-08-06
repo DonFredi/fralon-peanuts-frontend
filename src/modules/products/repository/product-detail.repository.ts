@@ -10,8 +10,8 @@ const _shape = supabase
     `
     *,
     categories(id, name),
-    product_images(id, storage_path, is_primary, variant_id, sort_order),
-    product_variants(id, name, sku, price_ksh, stock_quantity, is_active, available, weight_gms)
+    product_images(*),
+    product_variants(*)
   `,
   )
   .eq("slug", "")
@@ -27,8 +27,8 @@ export const productDetailRepository = {
         `
         *,
         categories(id, name),
-        product_images(id, storage_path, is_primary, variant_id, sort_order),
-        product_variants(id, name, sku, price_ksh, stock_quantity, is_active, available, weight_gms)
+        product_images(*),
+        product_variants(*)
       `,
       )
       .eq("slug", slug)
