@@ -1,16 +1,7 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useState } from "react";
-import {
-  CheckCircle2,
-  Copy,
-  Check,
-  MapPin,
-  CreditCard,
-  ShoppingBag,
-  PackageCheck,
-  ArrowRight,
-} from "lucide-react";
+import { CheckCircle2, Copy, Check, MapPin, CreditCard, ShoppingBag, PackageCheck, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
 import { Button } from "@/shared/components/ui/button";
@@ -63,8 +54,8 @@ export default function OrderSuccessPage() {
       <PageWrapper>
         <SectionWrapper className="max-w-2xl mx-auto py-12 text-center space-y-4">
           <p className="text-muted-foreground">
-            We couldn't load your order details. Your order was placed — please check
-            your orders history or contact support.
+            We couldn't load your order details. Your order was placed — please check your orders history or contact
+            support.
           </p>
           <Button onClick={() => router.push("/")}>Back to home</Button>
         </SectionWrapper>
@@ -78,14 +69,13 @@ export default function OrderSuccessPage() {
   return (
     <PageWrapper>
       <SectionWrapper className="max-w-2xl mx-auto py-10 space-y-6">
-
         {/* ── success header ─────────────────────────────────────── */}
         <div className="flex flex-col items-center text-center gap-3">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
-            <CheckCircle2 className="h-9 w-9 text-green-600 dark:text-green-400" />
+            <Check className="size-20 text-success" />
           </div>
           <div className="space-y-1">
-            <h1 className="text-2xl font-semibold">Order placed successfully</h1>
+            <h1 className="text-2xl font-bold">Order placed successfully</h1>
             <p className="text-sm text-muted-foreground max-w-sm">
               Thank you for your order. We have received it and will{" "}
               {isDelivery ? "deliver it to your address" : "have it ready for pickup"} shortly.
@@ -97,15 +87,10 @@ export default function OrderSuccessPage() {
         <Card>
           <CardContent className="flex items-center justify-between gap-4 py-4">
             <div className="flex flex-col gap-0.5">
-              <span className="text-xs text-muted-foreground">Order ID</span>
+              <span className="text-sm text-muted-foreground">Order ID</span>
               <span className="text-sm font-mono font-medium break-all">{order.id}</span>
             </div>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleCopyOrderId}
-              className="shrink-0"
-            >
+            <Button variant="outline" size="sm" onClick={handleCopyOrderId} className="shrink-0 py-1.2 px-2.5">
               {copied ? (
                 <>
                   <Check className="h-3.5 w-3.5 text-green-600" />
@@ -124,7 +109,7 @@ export default function OrderSuccessPage() {
         {/* ── order items ────────────────────────────────────────── */}
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium flex items-center gap-2">
+            <CardTitle className="font-medium flex items-center gap-2">
               <ShoppingBag className="h-4 w-4 text-muted-foreground" />
               Items ordered
             </CardTitle>
@@ -134,14 +119,10 @@ export default function OrderSuccessPage() {
               <div key={item.id} className="flex items-start justify-between gap-3">
                 <div className="flex flex-col gap-0.5">
                   <span className="text-sm font-medium">{item.product_name}</span>
-                  {item.variant_name && (
-                    <span className="text-xs text-muted-foreground">{item.variant_name}</span>
-                  )}
+                  {item.variant_name && <span className="text-xs text-muted-foreground">{item.variant_name}</span>}
                   <span className="text-xs text-muted-foreground">Qty: {item.quantity}</span>
                 </div>
-                <span className="text-sm font-medium shrink-0">
-                  {formatPrice(item.total_ksh)}
-                </span>
+                <span className="text-sm font-medium shrink-0">{formatPrice(item.total_ksh)}</span>
               </div>
             ))}
 
@@ -155,9 +136,7 @@ export default function OrderSuccessPage() {
               </div>
               <div className="flex justify-between text-sm text-muted-foreground">
                 <span>Shipping</span>
-                <span>
-                  {order.shipping_ksh === 0 ? "Free" : formatPrice(order.shipping_ksh)}
-                </span>
+                <span>{order.shipping_ksh === 0 ? "Free" : formatPrice(order.shipping_ksh)}</span>
               </div>
               {order.discount_ksh > 0 && (
                 <div className="flex justify-between text-sm text-green-600">
@@ -177,7 +156,7 @@ export default function OrderSuccessPage() {
         {/* ── fulfillment card ───────────────────────────────────── */}
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium flex items-center gap-2">
+            <CardTitle className="font-medium flex items-center gap-2">
               <PackageCheck className="h-4 w-4 text-muted-foreground" />
               {isDelivery ? "Delivery details" : "Pickup details"}
             </CardTitle>
@@ -210,7 +189,7 @@ export default function OrderSuccessPage() {
         {/* ── payment card ───────────────────────────────────────── */}
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium flex items-center gap-2">
+            <CardTitle className="font-medium flex items-center gap-2">
               <CreditCard className="h-4 w-4 text-muted-foreground" />
               Payment
             </CardTitle>
@@ -218,15 +197,11 @@ export default function OrderSuccessPage() {
           <CardContent className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <span className="text-sm text-muted-foreground">Method</span>
-              <span className="text-sm font-medium capitalize">
-                {isMpesa ? "M-Pesa" : "Cash on Delivery"}
-              </span>
+              <span className="text-sm font-medium capitalize">{isMpesa ? "M-Pesa" : "Cash on Delivery"}</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-muted-foreground">Status</span>
-              <Badge className="bg-amber-500/10 text-amber-600 dark:text-amber-400 border-0">
-                Unpaid
-              </Badge>
+              <Badge className="bg-amber-500/10 text-amber-600 dark:text-amber-400 border-0">Unpaid</Badge>
             </div>
             {isMpesa && order.payment_reference && (
               <div className="flex items-center justify-between">
@@ -236,31 +211,22 @@ export default function OrderSuccessPage() {
             )}
             {!isMpesa && (
               <p className="text-xs text-muted-foreground mt-1">
-                Payment will be collected at the time of{" "}
-                {isDelivery ? "delivery" : "pickup"}.
+                Payment will be collected at the time of {isDelivery ? "delivery" : "pickup"}.
               </p>
             )}
           </CardContent>
         </Card>
 
         {/* ── cta buttons ────────────────────────────────────────── */}
-        <div className="flex flex-col sm:flex-row gap-3">
-          <Button
-            variant="outline"
-            className="flex-1"
-            onClick={() => router.push("/")}
-          >
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Button variant="outline" className="flex-1 w-full" onClick={() => router.push("/")}>
             Continue shopping
           </Button>
-          <Button
-            className="flex-1"
-            onClick={() => router.push("/orders")}
-          >
+          <Button className="flex-1 w-full" onClick={() => router.push("/orders")}>
             View my orders
             <ArrowRight className="h-4 w-4" />
           </Button>
         </div>
-
       </SectionWrapper>
     </PageWrapper>
   );

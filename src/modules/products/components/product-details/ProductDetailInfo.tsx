@@ -40,7 +40,7 @@ export default function ProductDetailInfo({ product, selectedVariant, onVariantC
             {product.categories && (
               <p className="text-xs uppercase tracking-widest text-accent">{product.categories.name}</p>
             )}
-            <h1 className="text-2xl font-semibold leading-tight">{product.name}</h1>
+            <h1 className="text-2xl font-bold leading-tight">{product.name}</h1>
           </div>
           <FavButton />
         </div>
@@ -93,7 +93,7 @@ export default function ProductDetailInfo({ product, selectedVariant, onVariantC
             <p className="text-sm text-muted-foreground">In your cart</p>
           </div>
         ) : (
-          <AddToCartBtn className="w-full" productId={selectedVariant.product_id} variantId={selectedVariant.id} />
+          <AddToCartBtn className="w-full py-3" productId={selectedVariant.product_id} variantId={selectedVariant.id} />
         )}
       </div>
     </div>

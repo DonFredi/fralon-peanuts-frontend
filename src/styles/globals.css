@@ -6,7 +6,7 @@
 
 :root {
   /* COLORS */
-  --primary: oklch(0.334 0.057 183.6);
+  --primary: /* oklch(0.334 0.057 183.6) */ oklch(0.4785 0.0713 166.21);
   --secondary: #887265;
   --accent: #ff6300;
   --neutral: #ebf2ff;
