@@ -12,7 +12,6 @@ export default function AccountInfo({ user }: { user: ProfileWithAddresses | nul
         </div>
         <div className="">
           <H5>{user?.full_name}</H5>
-          <small className="text-foreground-caption text-caption-base">{user?.id}</small>
         </div>
       </div>
       <span className="flex items-center gap-2">

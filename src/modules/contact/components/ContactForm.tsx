@@ -18,6 +18,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { sendContactEmail } from "../actions/send-contact-email";
 import { toast } from "sonner";
 import SectionHeading from "@/shared/components/shared/SectionHeading";
+import { SendIcon } from "lucide-react";
 
 export default function ContactForm() {
   const {
@@ -84,7 +85,8 @@ export default function ContactForm() {
           </FieldSet>
 
           <Field orientation="horizontal" className="justify-end">
-            <Button type="submit" disabled={isSubmitting}>
+            <Button type="submit" disabled={isSubmitting} className="gap-4 ">
+              <SendIcon className="size-5" />
               {isSubmitting ? "Submitting..." : "Submit"}
             </Button>
           </Field>

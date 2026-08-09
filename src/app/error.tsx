@@ -15,7 +15,7 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
       <SectionWrapper className="flex flex-col items-center gap-2 justify-start">
         <SectionHeading className="text-destructive font-bold">Error</SectionHeading>
         <p className="">Something has gone wrong, please try again!</p>
-        <Button onClick={() => reset()} className="w-fit">
+        <Button size="sm" onClick={() => reset()} className="w-fit">
           Try again
         </Button>
       </SectionWrapper>

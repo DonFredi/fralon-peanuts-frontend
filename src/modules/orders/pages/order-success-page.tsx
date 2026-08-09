@@ -222,7 +222,7 @@ export default function OrderSuccessPage() {
           <Button variant="outline" className="flex-1 w-full" onClick={() => router.push("/")}>
             Continue shopping
           </Button>
-          <Button className="flex-1 w-full" onClick={() => router.push("/orders")}>
+          <Button className="flex-1 w-full" onClick={() => router.push("/account/orders")}>
             View my orders
             <ArrowRight className="h-4 w-4" />
           </Button>

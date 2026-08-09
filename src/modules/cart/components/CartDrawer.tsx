@@ -10,6 +10,7 @@ import CartItem from "./CartItem";
 import CartItemSkeleton from "./CartItemSkeleton";
 import CartEmpty from "./CartEmpty";
 import CartSummary from "./CartSummary";
+import { H3 } from "@/shared/components/ui/Typography";
 
 export default function CartDrawer() {
   const {
@@ -35,8 +36,8 @@ export default function CartDrawer() {
         {/* ── Header ── */}
         <SheetHeader className="px-4 pt-5 pb-3 border-b">
           <SheetTitle className="flex items-center gap-2 text-base">
-            <ShoppingBag className="h-4 w-4" />
-            Your cart
+            <ShoppingBag className="size-4.5" />
+            <span className="text-xl font-semibold">Your cart</span>
             {itemCount > 0 && (
               <span className="ml-1 rounded-full bg-primary px-2 py-0.5 text-[10px] font-medium text-background">
                 {itemCount}

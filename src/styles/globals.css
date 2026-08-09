@@ -185,19 +185,19 @@
   }
 
   h1 {
-    @apply font-extrabold text-heading-lg;
+    @apply font-extrabold text-heading-xl;
   }
   h2 {
-    @apply font-extrabold text-heading-base;
+    @apply font-extrabold text-heading-lg;
   }
   h3 {
-    @apply font-bold text-heading-sm;
+    @apply font-bold text-heading-base;
   }
   h4 {
-    @apply font-bold text-heading-xs;
+    @apply font-bold text-heading-sm;
   }
   h5 {
-    @apply font-bold text-heading-xxs;
+    @apply font-bold text-heading-xs;
   }
 }
 

@@ -13,8 +13,8 @@ export default function CartEmpty({ onClose }: CartEmptyProps) {
       <div className="rounded-full bg-muted p-4 mb-4">
         <ShoppingBag className="size-14 text-muted-foreground" />
       </div>
-      <p className="text-sm font-medium">Your cart is empty</p>
-      <p className="text-xs text-muted-foreground mt-1 max-w-xs">Browse our products and add something you love.</p>
+      <p className="font-semibold">Your cart is empty</p>
+      <p className="text-sm text-muted-foreground mt-1 max-w-xs">Browse our products and add something you love.</p>
       <Button size="sm" variant="outline" className="mt-5" asChild onClick={onClose}>
         <Link href="/products">Browse products</Link>
       </Button>
