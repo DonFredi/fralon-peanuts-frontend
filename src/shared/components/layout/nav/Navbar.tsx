@@ -2,7 +2,6 @@ import NavLink from "./components/NavLink";
 
 export const navLinks = [
   { to: "/", label: "Home" },
-  { to: "/admin/dashboard", label: "Dashboard" },
   { to: "/products", label: "Products" },
   { to: "/about", label: "About us" },
   { to: "/contact", label: "Contact us" },

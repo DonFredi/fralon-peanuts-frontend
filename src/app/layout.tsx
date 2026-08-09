@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Sofia_Sans, Plus_Jakarta_Sans } from "next/font/google";
+import { Sofia_Sans, Fraunces } from "next/font/google";
 import "@/styles/globals.css";
 import { generateSEO } from "@/shared/lib/seo";
 import QueryProvider from "@/providers/QueryProvider";
@@ -7,15 +7,15 @@ import AuthProvider from "@/providers/AuthProvider";
 import { CartProvider } from "@/modules/cart/context/cart-context";
 import CartDrawer from "@/modules/cart/components/CartDrawer";
 
-const outfit = Plus_Jakarta_Sans({
-  variable: "--font-outfit",
+const secondary = Fraunces({
+  variable: "--font-heading",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const sofiaSans = Sofia_Sans({
-  variable: "--font-sofia-sans",
+const primary = Sofia_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="min-h-screen">
-      <body className={`${outfit.variable} ${sofiaSans.variable} antialiased gap-y-10 flex flex-col`}>
+      <body className={`${primary.variable} ${secondary.variable} antialiased gap-y-10 flex flex-col`}>
         {/* Organization */}
         {/* <JsonLd data={organizationSchema} /> */}
         {/* Website */}

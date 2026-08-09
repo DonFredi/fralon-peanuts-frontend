@@ -80,8 +80,8 @@
   --color-foreground-border-muted: var(--border-muted);
 
   /* TYPOGRAPHY */
-  --font-primary: var(--font-sofia-sans);
-  --font-secondary: var(--font-outfit);
+  --font-primary: var(--font-body);
+  --font-secondary: var(--font-heading);
 
   --text-caption-xs: var(--text-size-xs);
   --text-caption-sm: var(--text-size-xs);

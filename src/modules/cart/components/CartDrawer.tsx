@@ -67,7 +67,7 @@ export default function CartDrawer() {
 
         {/* ── Footer ── */}
         {!isLoading && items.length > 0 && (
-          <div className="px-4 pb-6 pt-3 border-t bg-background">
+          <div className="px-4 pb-6 pt-3 bg-background">
             <CartSummary subtotal={subtotal} itemCount={itemCount} isMutating={isMutating} onCheckout={closeDrawer} />
           </div>
         )}

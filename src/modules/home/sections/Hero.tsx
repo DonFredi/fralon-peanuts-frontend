@@ -1,5 +1,4 @@
 import SectionWrapper from "@/shared/components/shared/SectionWrapper";
-import NavButton from "@/shared/components/ui/NavButton";
 import { H1, P } from "@/shared/components/ui/Typography";
 import Header from "@/shared/components/layout/Header";
 import HeroCta from "../components/HeroCta";
@@ -11,8 +10,7 @@ export default function Hero() {
       <SectionWrapper className="flex-1 flex items-center">
         <div className="section-content max-w-155">
           <H1>
-            Just pure peanut goodness,
-            <br /> nothing else
+            Just pure peanut goodness, <span className="text-primary">nothing else</span>
           </H1>
           <P>
             Not Just Any Butter, It's Peanut Perfection. Nutty, But in the Best Way. We offer quality peanut butter

@@ -17,7 +17,7 @@ export default function CartSummary({ subtotal, itemCount, isMutating, onCheckou
 
       {/* ── Subtotal ── */}
       <div className="flex items-center justify-between text-sm">
-        <span className="text-muted-foreground">
+        <span className="text-muted-foreground font-medium">
           Subtotal ({itemCount} item{itemCount !== 1 ? "s" : ""})
         </span>
         <span className="font-semibold text-base">KSH {subtotal.toLocaleString()}</span>
