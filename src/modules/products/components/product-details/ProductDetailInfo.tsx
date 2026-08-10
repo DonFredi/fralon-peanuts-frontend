@@ -47,7 +47,7 @@ export default function ProductDetailInfo({ product, selectedVariant, onVariantC
 
         {/* ── 2. Price — elevated weight ── */}
         {selectedVariant && (
-          <p className="text-3xl font-bold font-heading">KSH {selectedVariant.price_ksh.toLocaleString()}</p>
+          <p className="text-3xl font-bold font-secondary">KSH {selectedVariant.price_ksh.toLocaleString()}</p>
         )}
       </div>
 
