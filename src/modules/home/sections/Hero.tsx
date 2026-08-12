@@ -2,13 +2,15 @@ import SectionWrapper from "@/shared/components/shared/SectionWrapper";
 import { H1, P } from "@/shared/components/ui/Typography";
 import Header from "@/shared/components/layout/Header";
 import HeroCta from "../components/HeroCta";
+import SectionCaption from "@/shared/components/shared/SectionCaption";
 
 export default function Hero() {
   return (
-    <div className="relative bg-[url('/images/fralon-hero_img.png')] h-[80vh] bg-cover bg-center overflow-hidden flex flex-col">
+    <div className="relative bg-[url('/images/fralon-hero_img.png')] min-h-[80vh] bg-cover bg-center overflow-hidden flex flex-col">
       <Header />
       <SectionWrapper className="flex-1 flex items-center">
         <div className="section-content max-w-155">
+          <SectionCaption>Made for every table</SectionCaption>
           <H1>
             Just pure peanut goodness, <br /> <span className="text-primary">nothing else</span>
           </H1>

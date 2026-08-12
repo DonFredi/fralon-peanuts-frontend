@@ -26,7 +26,7 @@ export default function ProductCard({ variant, onAddToCart }: ProductCardProps) 
   };
 
   return (
-    <div className="group flex flex-col rounded-lg border border-foreground-border bg-card overflow-hidden transition-shadow hover:shadow-md">
+    <div className="group flex flex-col rounded-lg border border-foreground-border bg-background overflow-hidden transition-shadow hover:shadow-md">
       {/* ── Image — full card is not a link; only image+text area is ── */}
       <Link href={detailHref} className="block">
         <div className="relative aspect-square w-full overflow-hidden bg-muted">
@@ -66,7 +66,7 @@ export default function ProductCard({ variant, onAddToCart }: ProductCardProps) 
       </Link>
 
       {/* ── CTA — outside Link to avoid nested interactive elements ── */}
-      <div className="px-3 pb-3 mt-auto">
+      <div className="px-2 pb-3 mt-auto">
         {isOos ? (
           <Button size="sm" className="w-full" disabled aria-label={`${product?.name} ${variant.name} is out of stock`}>
             Out of stock

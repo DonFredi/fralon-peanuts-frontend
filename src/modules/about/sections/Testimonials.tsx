@@ -6,7 +6,11 @@ import QuotesIcon from "../icons/QuotesIcon";
 export default function Testimonials() {
   return (
     <SectionWrapper className="section-wrapper gap-4 overflow-x-hidden">
-      <SectionHeading className="text-center">
+      <SectionHeading
+        caption="Loved by peanut people"
+        className="text-center"
+        containerClassName="items-center text-center"
+      >
         What our customers
         <br /> say about us
       </SectionHeading>

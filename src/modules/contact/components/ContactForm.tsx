@@ -18,6 +18,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { sendContactEmail } from "../actions/send-contact-email";
 import { toast } from "sonner";
 import SectionHeading from "@/shared/components/shared/SectionHeading";
+import SectionCaption from "@/shared/components/shared/SectionCaption";
 import { SendIcon } from "lucide-react";
 
 export default function ContactForm() {
@@ -43,6 +44,7 @@ export default function ContactForm() {
   return (
     <SectionWrapper>
       <form onSubmit={handleSubmit(onSubmit)} className="max-w-100">
+        <SectionCaption>Let&apos;s start a conversation</SectionCaption>
         <FieldGroup>
           <FieldSet>
             <FieldLegend className="">

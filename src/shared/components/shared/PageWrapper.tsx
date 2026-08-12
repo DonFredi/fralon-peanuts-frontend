@@ -7,5 +7,5 @@ type SectionProps = {
 };
 
 export default function PageWrapper({ children, className }: SectionProps) {
-  return <section className={twMerge("flex flex-col flex-1 gap-10", className)}>{children}</section>;
+  return <section className={twMerge("flex flex-col flex-1 gap-14", className)}>{children}</section>;
 }

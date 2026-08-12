@@ -27,20 +27,26 @@ export default function ProductsCarousel() {
   if (!variants || variants.length === 0) return null;
 
   return (
-    <Carousel className="flex flex-col gap-8">
-      <CarouselContent className="flex items-center">
+    <Carousel opts={{ align: "start", containScroll: "trimSnaps" }} className="flex flex-col gap-5 sm:gap-6">
+      <CarouselContent className="flex items-center pl-2">
         {variants.map((variant) => (
           <CarouselItem
             key={variant.id}
-            className="pl-4 md:pl-6 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6"
+            className="basis-1/2 pl-3 sm:basis-1/3 sm:pl-4 md:basis-1/4 lg:basis-1/5 xl:basis-1/6"
           >
             <ProductCard variant={variant} onAddToCart={handleAddToCart} />
           </CarouselItem>
         ))}
       </CarouselContent>
-      <div className="w-fit self-center flex items-center justify-between gap-4">
-        <CarouselPrevious variant="ghost" className="p-5 border border-primary text-border" />
-        <CarouselNext variant="ghost" className="p-5 border border-primary text-border" />
+      <div className="flex w-full items-center justify-end gap-2">
+        <CarouselPrevious
+          variant="ghost"
+          className="size-10 border border-primary/25 bg-background text-primary hover:bg-primary hover:text-primary"
+        />
+        <CarouselNext
+          variant="ghost"
+          className="size-10 border border-primary/25 bg-background text-primary hover:bg-primary hover:text-primary"
+        />
       </div>
     </Carousel>
   );

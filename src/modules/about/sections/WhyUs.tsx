@@ -8,7 +8,9 @@ export default function WhyUs() {
   return (
     <SectionWrapper className="section-wrapper">
       <div className="section-head">
-        <SectionHeading>Why choose us</SectionHeading>
+        <SectionHeading caption="Made with purpose" containerClassName="items-center text-center">
+          Why choose us
+        </SectionHeading>
         <P className="text-center">{whyUs.intro}</P>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
